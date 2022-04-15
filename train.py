@@ -2,23 +2,16 @@ import argparse
 import collections
 import torch
 import numpy as np
-import data_loader.data_loaders as module_data
+
+import trainer.data_loader.data_loaders as module_data
 import model.loss as module_loss
 import model.metric as module_metric
 import model.model as module_arch
-from parse_config import ConfigParser
+from utils.parse_config import ConfigParser
 from trainer import Trainer
 from utils import prepare_device
 
-
-# fix random seeds for reproducibility
-SEED = 123
-torch.manual_seed(SEED)
-torch.backends.cudnn.deterministic = True
-torch.backends.cudnn.benchmark = False
-np.random.seed(SEED)
-
-def main(config):
+def train(config):
     logger = config.get_logger('train')
 
     # setup data_loader instances

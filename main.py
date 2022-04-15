@@ -36,8 +36,8 @@ def main(config):
     logger = config.get_logger('main')
 
     # build model architecture, then print to console
-    model = train(config)
-    # test()
+    #model = train(config)
+    test(config)
 
 if __name__ == "__main__":
     args = argparse.ArgumentParser(description='PyTorch Template')

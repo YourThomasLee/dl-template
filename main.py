@@ -5,12 +5,12 @@
 import argparse
 import collections
 import numpy as np
-import trainer.data_loader.data_loaders as module_data
 import torch
 
 
 # user library
 from utils.parse_config import ConfigParser
+import trainer.data_loaders as module_data
 from train import train
 from test import test
 
@@ -32,16 +32,16 @@ def main(config):
     - train the model
     - test the model
     """
-    print(config)
-    # setup data_loader instances
-    # data_loader = config.init_obj('data_loader', module_data)
-    # valid_data_loader = data_loader.split_validation()
-    # train()
+    # initialize logger
+    logger = config.get_logger('main')
+
+    # build model architecture, then print to console
+    model = train(config)
     # test()
 
 if __name__ == "__main__":
     args = argparse.ArgumentParser(description='PyTorch Template')
-    args.add_argument('-c', '--config', default=None, type=str,
+    args.add_argument('-c', '--config', default="conf/config.json", type=str,
                       help='config file path (default: None)')
     args.add_argument('-r', '--resume', default=None, type=str,
                       help='path to latest checkpoint (default: None)')

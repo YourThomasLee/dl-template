@@ -1,11 +1,11 @@
 import argparse
 import torch
 from tqdm import tqdm
-import data_loader.data_loaders as module_data
+import trainer.data_loaders as module_data
 import model.loss as module_loss
 import model.metric as module_metric
 import model.model as module_arch
-from parse_config import ConfigParser
+from utils.parse_config import ConfigParser
 
 
 def test(config):

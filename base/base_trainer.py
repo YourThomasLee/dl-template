@@ -126,7 +126,6 @@ class BaseTrainer:
     def _resume_checkpoint(self, resume_path):
         """
         Resume from saved checkpoints
-
         :param resume_path: Checkpoint path to be resumed
         """
         resume_path = str(resume_path)

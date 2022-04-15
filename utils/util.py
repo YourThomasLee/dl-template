@@ -1,10 +1,11 @@
 import json
+import sys
 import torch
 import pandas as pd
 from pathlib import Path
 from itertools import repeat
 from collections import OrderedDict
-import commands
+import subprocess as commands
 import datetime
 import functools
 import time
@@ -26,13 +27,13 @@ def time_counter(func):
 
 def run_shell(shell_str):
     """execute shell commands"""
-    logger.debug("shell_str: %s" % shell_str)
+    # logger.debug("shell_str: %s" % shell_str)
     status, output = commands.getstatusoutput(shell_str)
     if status != 0:
-        logger.error(output)
+        # logger.error(output)
         return 1
     else:
-        logger.debug("achieve excuting shell: %s" % shell_str)
+        # logger.debug("achieve excuting shell: %s" % shell_str)
         # logger.debug("shell output: %s" % output)
         return 0
 
